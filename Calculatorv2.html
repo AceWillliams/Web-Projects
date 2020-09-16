@@ -1,0 +1,112 @@
+
+
+<html>
+<head>
+<script>
+	function pibutton(pib){
+	var dis = document.getElementById("dis").value;
+	document.getElementById("dis").value = dis + Math.PI;
+	}
+	function obutton(pob){
+		var dis = document.getElementById("dis").value;
+		document.getElementById("dis").value = dis + pob;
+	}
+	
+	function fbutton(fop) {
+		var dis = document.getElementById("dis").value;
+		document.getElementById("dis").value = dis + fop;
+	}
+	
+	function mbutton (mastr){
+		switch(mastr)
+		{
+			case 'M' : {
+				document.getElementById("memdis").value=
+				document.getElementById("dis").value;
+				break;
+			}
+			case 'C' : {
+				document.getElementById("memdis").value = "";
+				break;
+			}
+			case 'R' : {
+				document.getElementById("dis").value+=
+				document.getElementById("memdis").value;
+				break;
+			}
+		}
+	}
+	
+	function cleardisplay(){
+	document.getElementById("dis").value="";
+	}
+	
+	function backspace(){
+		var dis = document.getElementById("dis").value
+		var dislen = dis.length-1;
+		dis =dis.substr(0,dislen);
+		document.getElementById("dis").value = dis;
+	}
+	
+	function eqauls(){
+		var dis = document.getElementById("dis").value;
+		var dis2 = eval(dis);
+		var dis3 = dis + "=" + dis2;
+		document.getElementById("dis").value = dis2;
+		document.getElementById("memtape").value += dis3;
+	}
+	
+	function tapecheck(){
+		if (document.getElementById("membox").checked)
+		{
+			document.getElementById("tape").style.display="block";
+		}
+		else{
+			document.getElementById("tape").style.display ="none";
+		}
+	}
+	
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<p id="message"><p/>
+<form id = "calc">
+	<input type = "text" id="dis" />
+	<br />
+	<br />
+		<input type = "button" class="pob" value="+" onclick = "obutton ('+')" />
+		<input type = "button" class="pob" value="-" onclick = "obutton ('-')" />
+		<input type = "button" class="pob" value="*" onclick = "obutton ('*')" />
+		<input type = "button" class="pob" value="/" onclick = "obutton ('/')" />
+	
+	<br />
+	<br />
+		<input type = "button" class="fob" value="1" onclick = "fbutton('1')" />
+		<input type = "button" class="fob" value="2" onclick = "fbutton('2')" />
+		<input type = "button" class="fob" value="3" onclick = "fbutton('3')" />
+		<input type = "button" class="mob" value="M+" onclick = "mbutton('M')" />
+	<br />
+	<br />
+		<input type = "button" class="fob" value="4" onclick = "fbutton('4')" />
+		<input type = "button" class="fob" value="5" onclick = "fbutton('5')" />
+		<input type = "button" class="fob" value="6" onclick = "fbutton ('6')" />
+		<input type = "button" class="mob" value="Mc" onclick = "mbutton('C')" />
+	<br />
+	<br />
+		<input type = "button" class="fob" value="7" onclick = "fbutton ('7')" />
+		<input type = "button" class="fob" value="8" onclick = "fbutton ('8')" />
+		<input type = "button" class="fob" value="9" onclick = "fbutton ('9')" />
+		<input type = "button" class="mob" value="Mr" onclick = "mbutton ('R')" />
+	<br />
+	<br />
+		<input type = "button" class="fob" value="Clr" onclick = "cleardisplay()" />
+		<input type = "button" class="fob" value="0" onclick = "fbutton ('0')" />
+		<input type = "button" class="fob" value="Bks" onclick = "backspace()" />
+		<input type = "button" class="pib" value="pi" onclick = "pibutton ('pi')" />
+	<br />
+	<br />
+	<input  type = "button" class ="eqbut" value = "=" onclick = "eqauls()" />
+	<br />
+</body>
+</html>
